@@ -4,10 +4,11 @@ var miControlador = miModulo.controller(
         $scope.paginaActual = parseInt($routeParams.page);
         $scope.rppActual = parseInt($routeParams.rpp);
         $scope.rppS = [10,50,100];
-        $scope.sitio = "plist";
+        $scope.controller = "postPlistController";
+
 
         $http({
-            method: 'GET',
+            method: 'POST',
             url: 'http://localhost:8081/blogbuster/json?ob=post&op=getpage&rpp=' + $routeParams.rpp + '&page=' + $routeParams.page
         }).then(function (response) {
             $scope.status = response.data.status;
@@ -16,7 +17,7 @@ var miControlador = miModulo.controller(
         })
 
         $http({
-            method: 'GET',
+            method: 'POST',
             url: 'http://localhost:8081/blogbuster/json?ob=post&op=getcount'
         }).then(function (response) {
             $scope.status = response.data.status;
@@ -26,7 +27,7 @@ var miControlador = miModulo.controller(
             for (const p of $scope.rppS) {
                 const res = $scope.paginaActual/$scope.numPaginas;
                 const next = Math.ceil($scope.numRegistros / p);
-                $scope.calcPage.push(Math.ceil(res * next));
+                $scope.calcPage.push(Math.round(res * next));
             }
             paginacion(2);
         }, function () {
@@ -47,5 +48,9 @@ var miControlador = miModulo.controller(
                 }
             }
         }
+
+
+
+
     }]
 )
