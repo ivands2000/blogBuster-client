@@ -1,0 +1,33 @@
+<div class="header shadow">
+    <h1>Vista de Registro</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+                <div class="slide-animate-container">
+                    <ng-include src="'app/nav.html'"></ng-include>
+                </div>
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <td>{{traerpost.id}}</td>
+                </tr>
+                <tr>
+                    <th>Título</th>
+                    <td>{{traerpost.titulo}}</td>
+                </tr>
+                <tr>
+                    <th>Cuerpo</th>
+                    <td>{{traerpost.cuerpo}}</td>
+                </tr>
+                <tr>
+                    <th>Etiquetas</th>
+                    <td>{{traerpost.etiquetas}}</td>
+                </tr>
+            </table>
+
+            <p>¿Estás seguro de eliminar este registro?</p>
+            <input type='button' ng-click='remove(traerpost.id);' value='Delete'>
+        </div>
+    </div>
+</div>
