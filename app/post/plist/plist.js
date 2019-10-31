@@ -12,7 +12,7 @@ var miControlador = miModulo.controller(
             url: 'http://localhost:8081/blogbuster/json?ob=post&op=getpage&rpp=' + $routeParams.rpp + '&page=' + $routeParams.page
         }).then(function (response) {
             $scope.status = response.data.status;
-            $scope.pagina = response.data.response;
+            $scope.pagina = response.data.message;
         }, function () {
         })
 
@@ -21,7 +21,7 @@ var miControlador = miModulo.controller(
             url: 'http://localhost:8081/blogbuster/json?ob=post&op=getcount'
         }).then(function (response) {
             $scope.status = response.data.status;
-            $scope.numRegistros = response.data.response;
+            $scope.numRegistros = response.data.message;
             $scope.numPaginas = Math.ceil($scope.numRegistros / $routeParams.rpp);
             $scope.calcPage = [];
             for (const p of $scope.rppS) {
