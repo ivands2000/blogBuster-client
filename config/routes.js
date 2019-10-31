@@ -1,6 +1,6 @@
 miModulo.config(['$routeProvider', 
-    function ($routeProvider) {
-/*
+    function ($routeProvider,$q) {
+
         var anyPromise = function () {
             var deferred = $q.defer();
             deferred.resolve();
@@ -25,7 +25,6 @@ miModulo.config(['$routeProvider',
             return deferred;
            
         }
- */
         $routeProvider.when('/', {
             templateUrl: 'app/homeTemplate.html',
             controller: 'homeController'
