@@ -17,7 +17,7 @@
                   <ng-include src="app/nav.html"></ng-include>
               </div>
               <div class="col-12 user-img">
-                  <img src="css/user.png" th:src="@{/css/user.png}"/>
+                  <img src="user.png" th:src="@{/css/user.png}"/>
               </div>
               <form class="col-12" th:action="@{/login}" method="get">
                   <div class="form-group" id="user-group">
@@ -31,12 +31,6 @@
               <div class="col-12 forgot">
                   <a href="#">Recordar contrasena?</a>
               </div>
-              <div th:if="${param.error}" class="alert alert-danger" role="alert">
-              Invalid username and password.
-          </div>
-          <div th:if="${param.logout}" class="alert alert-success" role="alert">
-              You have been logged out.
-          </div>
           </div>
       </div>
   </div>
